@@ -1,0 +1,41 @@
+﻿<Window x:Class="Ventas.NuevoPedido"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ventas"
+        mc:Ignorable="d"
+        Title="Nuevo Pedido" Height="450" Width="800" >
+    <Grid Margin="20,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="176*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="790*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Departamento&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="cboDepto" HorizontalAlignment="Left" Margin="100,39,0,0" VerticalAlignment="Top" Width="202" DisplayMemberPath="Nombre" SelectedItem="{Binding Path=Departamento}" SelectionChanged="cboDepto_SelectionChanged" Grid.ColumnSpan="3"/>
+        <Label Content="Ciudad&#xA;" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="cboCiudad" HorizontalAlignment="Left" Margin="102,86,0,0" VerticalAlignment="Top" Width="202" DisplayMemberPath="Nombre" SelectedItem="{Binding Path=Ciudad}" SelectionChanged="cboCiudad_SelectionChanged" Grid.ColumnSpan="3"/>
+        <Label Content="Cliente&#xA;" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="cboCliente" HorizontalAlignment="Left" Margin="102,128,0,0" VerticalAlignment="Top" Width="202" DisplayMemberPath="Nombre" SelectedItem="{Binding Path=Cliente}" SelectionChanged="cboCliente_SelectionChanged" Grid.ColumnSpan="3"/>
+        <Label Content="Vendedor&#xA;" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="cboVendedor" HorizontalAlignment="Left" Margin="102,170,0,0" VerticalAlignment="Top" Width="202" DisplayMemberPath="Nombre" SelectedItem="{Binding Path=Vendedor}" Grid.ColumnSpan="3"/>
+        <DataGrid Margin="218,97,40,48" Grid.Column="2"/>
+        <Label Content="Fecha&#xD;&#xA;" HorizontalAlignment="Left" Margin="14,0,0,0" VerticalAlignment="Top" Width="127" Grid.ColumnSpan="2"/>
+        <Label Content="Producto&#xA;" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="cboProducto" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Width="202" DisplayMemberPath="Nombre" SelectedItem="{Binding Producto}" SelectionChanged="cboProducto_SelectionChanged" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="grPedido" Margin="218,97,40,48" Grid.Column="2"/>
+        <Label Content="Productos del pedido" Grid.Column="2" HorizontalAlignment="Left" Margin="218,64,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label Content="Cantidad&#xA;" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBox x:Name="pedPrecio" HorizontalAlignment="Left" Margin="102,277,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="pedPrecio_TextChanged" Grid.ColumnSpan="3"/>
+        <Label Content="Precio&#xA;" HorizontalAlignment="Left" Margin="12,272,0,0" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="pedCantidad" HorizontalAlignment="Left" Margin="100,312,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="pedCantidad_TextChanged" Grid.ColumnSpan="3"/>
+        <Label Content="Subtotal&#xA;" HorizontalAlignment="Left" Margin="10,336,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBox x:Name="pedSubtotal" HorizontalAlignment="Left" Margin="100,339,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" Grid.ColumnSpan="3"/>
+        <Button Content="Adicionar producto" HorizontalAlignment="Left" Margin="24,386,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button x:Name="btSave" Content="Guardar Pedido" Grid.Column="2" HorizontalAlignment="Left" Margin="505,396,0,0" VerticalAlignment="Top" Click="btSave_Click"/>
+        <Label Content="Total&#xA;" HorizontalAlignment="Left" Margin="218,396,0,0" VerticalAlignment="Top" Width="113" Grid.Column="2"/>
+        <TextBox x:Name="pedTotal" HorizontalAlignment="Left" Margin="275,399,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" IsEnabled="False" Grid.Column="2"/>
+        <DatePicker x:Name="dtFecha" HorizontalAlignment="Left" Margin="102,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.127" Grid.ColumnSpan="3" Width="213"/>
+    </Grid>
+</Window>
