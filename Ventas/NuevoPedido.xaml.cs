@@ -127,14 +127,21 @@ namespace Ventas
         private void btSave_Click(object sender, RoutedEventArgs e)
         {
             model.Fecha = dtFecha.SelectedDate;
-            if(bl.GuardarPedido(model))
+            if (model.Fecha != null && !string.IsNullOrEmpty(model.Cliente) && model.productos.Count > 0)
             {
-                MessageBox.Show("Pedido guardado!");
-                this.Close();
+                if (bl.GuardarPedido(model))
+                {
+                    MessageBox.Show("Pedido guardado!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error guardando el pedido");
+                }
             }
             else
             {
-                MessageBox.Show("Error guardando el pedido");
+                MessageBox.Show("Debe seleccionar los datos del pedido");
             }
         }
     }

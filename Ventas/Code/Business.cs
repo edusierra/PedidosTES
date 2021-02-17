@@ -14,7 +14,7 @@ namespace Ventas.Code
         {
             using (var db = new TesDbContext())
             {
-                return db.Departamentos.ToList();
+                return db.Departamentos.OrderBy(x => x.Nombre).ToList();
             }
         }
 
@@ -22,7 +22,7 @@ namespace Ventas.Code
         {
             using (var db = new TesDbContext())
             {
-                return db.Ciudads.Where(x => x.Departamento == CodDep).ToList();
+                return db.Ciudads.Where(x => x.Departamento == CodDep).OrderBy(x => x.Nombre).ToList();
             }
         }
 
@@ -30,7 +30,7 @@ namespace Ventas.Code
         {
             using (var db = new TesDbContext())
             {
-                return db.Clientes.Where(x => x.Ciudad == CodCiu).ToList();
+                return db.Clientes.Where(x => x.Ciudad == CodCiu).OrderBy(x => x.Nombre).ToList();
             }
         }
 
